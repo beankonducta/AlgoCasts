@@ -12,7 +12,8 @@ function maxChar(str) {
         if(!chars[char]) chars[char] = 1 
         else chars[char] += 1
     }
-    // convert obj to array and return here?
+    arr = Object.entries(chars).sort((a, b) => b[1] - a[1]);
+    return arr[0][0];
 }
 
 module.exports = maxChar;
