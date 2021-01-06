@@ -9,8 +9,8 @@
 
 function capitalize(str) {
     const arr = str.split(" ");
-    for(let char of arr) {
-        
+    for(let word of arr) {
+        // i think i need to either alter the first letter of each word or remove and replace with caps. unsure which
     }
     return arr;
 }
