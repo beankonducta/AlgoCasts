@@ -9,12 +9,22 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-    const arrA = stringA.replace(/[^\w\s]|_/g, "").toLowerCase().split("").sort().filter(val => val !== ' ')
-    const arrB = stringB.replace(/[^\w\s]|_/g, "").toLowerCase().split("").sort().filter(val => val !== ' ')
-    for(item of arrA) {
-        arrB.splice(arrB.indexOf(arrB.find(val => val === item)), 1);
+    const charsA = {};
+    let arrA = [];
+    const charsB = {};
+    let arrB = [];
+    for(let char of stringA) {
+        if(!charsA[char]) charsA[char] = 1 
+        else charsA[char] += 1
     }
-    return arrB.length === 0;
+    for(let char of stringB) {
+        if(!charsB[char]) charsB[char] = 1 
+        else charsB[char] += 1
+    }
+    for(let char in charsA) {
+        if(charsB[char] !== charsA[char]) return false;
+    }
+    return true;
 }
 
 module.exports = anagrams;
