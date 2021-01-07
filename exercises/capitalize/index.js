@@ -8,11 +8,13 @@
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 function capitalize(str) {
-    const arr = str.split(" ");
-    for(let word of arr) {
-        // i think i need to either alter the first letter of each word or remove and replace with caps. unsure which
+    const arr2 = [];
+    for(let word of str.split(" ")) {
+        let a = word[0].toUpperCase();
+        word = word.slice(1);
+        arr2.push(a + word);
     }
-    return arr;
+    return arr2.join(" ");
 }
 
 module.exports = capitalize;
