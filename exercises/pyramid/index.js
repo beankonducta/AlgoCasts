@@ -17,12 +17,12 @@
 function pyramid(n, row = 0, level = '') {
     if (row === n) return;
 
-    if (n === level.length - 2) {
+    if (level.length === (n*2) - 1) {
         console.log(level);
         pyramid(n, row + 1);
     }
     else {
-        level += level.length < Math.floor(n / 2) - row + 2 || level.length > Math.floor(n / 2) + row - 2 ? " " : "#"
+        level += level.length < Math.floor(n - 1) - row  || level.length > Math.floor(n - 1) + row  ? " " : "#"
         pyramid(n, row, level);
     }
 }
